@@ -7,7 +7,7 @@ $light: #fff;
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
 }
 
-.keyboard-btn {
+.btn {
   color: $dark;
   width: 100%;
   cursor: pointer;
@@ -20,15 +20,16 @@ $light: #fff;
   text-transform: uppercase;
 }
 
-.keyboard-btn.active {
+.btn.active {
   color: $light;
   background-color: hsl(200, 100%, 50%);
 }
-.keyboard-btn.inactive {
+
+.btn.inactive {
   opacity: 0.3;
 }
 
-.keyboard-btn:hover:not(disabled),
-.keyboard-btn:focus {
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
   background-color: hsl(200, 100%, 75%);
 }

@@ -1,4 +1,4 @@
-import styles from './keyboard.module.css'
+import styles from "./keyboard.module.css";
 const KEYS = [
   "a",
   "b",
@@ -26,16 +26,36 @@ const KEYS = [
   "x",
   "y",
   "z",
-]
+];
 
-const Keyboard = () => {
+type keyboardPros = {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+};
+
+const Keyboard = (props: keyboardPros) => {
   return (
     <div className={styles.container}>
-      {KEYS.map(item =>{
-        return <button key={item} className={`${styles["keyboard-btn"]} `}>{item}</button>
+      {KEYS.map((item) => {
+        const isActive = props.activeLetters?.includes(item);
+        const isInactive = props.inactiveLetters?.includes(item);
+
+        return (
+          <button
+            key={item}
+            onClick={() => props.addGuessedLetter(item)}
+            className={`${styles.btn} ${isActive ? styles.active : ""} ${
+              isInactive ? styles.inactive : ""
+            }`}
+            disabled={isInactive || isActive}
+          >
+            {item}
+          </button>
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default Keyboard
+export default Keyboard;
