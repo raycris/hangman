@@ -51,3 +51,47 @@ $dark: #000;
   height: 10px;
   background: $dark;
 }
+
+.right-arm {
+  top: 150px;
+  right: -90px;
+  width: 100px;
+  rotate: -30deg;
+  height: 10px;
+  position: absolute;
+  background: $dark;
+  transform-origin: left botton;
+}
+
+.left-arm {
+  top: 150px;
+  right: 0;
+  width: 100px;
+  rotate: 30deg;
+  height: 10px;
+  position: absolute;
+  background: $dark;
+  transform-origin: right botton;
+}
+
+.right-leg{
+  top: 250px;
+  right: -70px;
+  width: 100px;
+  rotate: 60deg;
+  height: 10px;
+  position: absolute;
+  background: $dark;
+  transform-origin: left botton;
+}
+
+.left-leg {
+  top: 250px;
+  right: -20px;
+  width: 100px;
+  rotate: -60deg;
+  height: 10px;
+  position: absolute;
+  background: $dark;
+  transform-origin: right botton;
+}
