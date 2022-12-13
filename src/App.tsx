@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import HangmanDrawing from "./components/drawing/hangmanDrawing";
+import HangmanWord from "./components/word/hangmanWord";
+import Keyboard from "./components/keyboard/keyboard";
+import words from "./wordList.json";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [wordToGuess, setWordToGuess] = useState(() => {
+    return words[Math.floor(Math.random() * words.length)];
+  });
+
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  console.log(wordToGuess);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div
+      style={{
+        gap: "2rem",
+        margin: "0 auto",
+        display: "flex",
+        maxWidth: "800px",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <div style={{ fontSize: "2rem", textAlign: "center" }}>Lose Win</div>
+      <HangmanDrawing />
+      <HangmanWord />
+      <Keyboard />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
