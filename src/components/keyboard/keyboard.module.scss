@@ -1,0 +1,34 @@
+$dark: #000;
+$light: #fff;
+
+.container {
+  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+}
+
+.keyboard-btn {
+  color: $dark;
+  width: 100%;
+  cursor: pointer;
+  border: 3px solid $dark;
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  background: none;
+  font-weight: bold;
+  aspect-ratio: 1/1;
+  text-transform: uppercase;
+}
+
+.keyboard-btn.active {
+  color: $light;
+  background-color: hsl(200, 100%, 50%);
+}
+.keyboard-btn.inactive {
+  opacity: 0.3;
+}
+
+.keyboard-btn:hover:not(disabled),
+.keyboard-btn:focus {
+  background-color: hsl(200, 100%, 75%);
+}
