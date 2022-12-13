@@ -7,15 +7,16 @@ const RIGHT_ARM = <div className={styles["right-arm"]} />;
 const LEFT_LEG = <div className={styles["left-leg"]} />;
 const RIGHT_LEG = <div className={styles["right-leg"]} />;
 
-const HangmanDrawing = () => {
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
+
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+
+const HangmanDrawing = ({ numberOfGuesses }: HangmanDrawingProps) => {
   return (
     <div className={styles.container}>
-      {HEAD}
-      {BODY}
-      {LEFT_ARM}
-      {RIGHT_ARM}
-      {RIGHT_LEG}
-      {LEFT_LEG}
+      {BODY_PARTS.slice(0, numberOfGuesses)}
       <div className={styles.rope} />
       <div className={styles["horizontal-rope"]} />
       <div className={styles.stick} />
