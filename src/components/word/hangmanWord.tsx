@@ -3,6 +3,7 @@ import styles from "./hangmanWord.module.css";
 type HangmanWordPros = {
   guessedLetters: string[];
   wordToGuess: string;
+  reveal?: boolean | false;
 };
 
 const HangmanWord = (props: HangmanWordPros) => {
@@ -12,10 +13,16 @@ const HangmanWord = (props: HangmanWordPros) => {
         <span className={styles.underline} key={index}>
           <span
             className={
-              props.guessedLetters.includes(letter)
+              props.guessedLetters.includes(letter) || props.reveal
                 ? "visible"
                 : styles["letter-Visibility"]
             }
+            style={{
+              color:
+                !props.guessedLetters.includes(letter) && props.reveal
+                  ? "red"
+                  : "black",
+            }}
           >
             {letter}
           </span>
