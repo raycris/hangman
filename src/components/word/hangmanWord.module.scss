@@ -1,0 +1,18 @@
+$dark: #000;
+
+.container {
+  gap: 0.25em;
+  display: flex;
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.underline {
+  border-bottom: 0.1em solid $dark;
+}
+
+.letter-Visibility {
+  visibility: hidden;
+}
