@@ -13,10 +13,10 @@ type HangmanDrawingProps = {
   numberOfGuesses: number;
 };
 
-const HangmanDrawing = ({ numberOfGuesses }: HangmanDrawingProps) => {
+const HangmanDrawing = (props: HangmanDrawingProps) => {
   return (
     <div className={styles.container}>
-      {BODY_PARTS.slice(0, numberOfGuesses)}
+      {BODY_PARTS.slice(0, props.numberOfGuesses)}
       <div className={styles.rope} />
       <div className={styles["horizontal-rope"]} />
       <div className={styles.stick} />

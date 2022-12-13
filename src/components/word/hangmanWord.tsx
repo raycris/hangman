@@ -1,14 +1,18 @@
 import styles from "./hangmanWord.module.css";
-const HangmanWord = () => {
-  const word = "test";
-  const guessedLetters = ["t"];
+
+type HangmanWordPros = {
+  guessedLetters: string[];
+  wordToGuess: string;
+};
+
+const HangmanWord = (props: HangmanWordPros) => {
   return (
     <div className={styles.container}>
-      {word.split("").map((letter, index) => (
+      {props.wordToGuess.split("").map((letter, index) => (
         <span className={styles.underline} key={index}>
           <span
             className={
-              guessedLetters.includes(letter)
+              props.guessedLetters.includes(letter)
                 ? "visible"
                 : styles["letter-Visibility"]
             }
