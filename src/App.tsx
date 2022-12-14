@@ -4,6 +4,8 @@ import HangmanWord from "./components/word/hangmanWord";
 import Keyboard from "./components/keyboard/keyboard";
 import words from "./wordList.json";
 
+import styles from "./App.module.css";
+
 function getWord() {
   return words[Math.floor(Math.random() * words.length)];
 }
@@ -17,7 +19,8 @@ function App() {
   );
 
   const isLoser = incorrectLetters.length >= 6;
-  const isWinner = wordToGuess.split("")
+  const isWinner = wordToGuess
+    .split("")
     .every((letter) => guessedLetters.includes(letter));
 
   /* This function is to prevent re-renders because we need only render when 
@@ -30,7 +33,6 @@ function App() {
     },
     [guessedLetters, isWinner, isLoser]
   );
-
 
   /*This useEffect is for get the letters from aor keyboard */
   useEffect(() => {
@@ -65,17 +67,8 @@ function App() {
   }, []);
 
   return (
-    <div
-      style={{
-        gap: "2rem",
-        margin: "0 auto",
-        display: "flex",
-        maxWidth: "800px",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>Lose Win</div>
+    <div className={styles.container}>
+      <div className={styles.title}>Lose Win</div>
 
       {isWinner && "You are a Winner, Congratulations! - Refresh to try again"}
       {isLoser && "Nice try budy :')  - Refresh to try again"}
@@ -86,7 +79,7 @@ function App() {
         guessedLetters={guessedLetters}
         wordToGuess={wordToGuess}
       />
-      <div style={{ alignSelf: "stretch" }}>
+      <div className={styles["keyboard-container"]}>
         <Keyboard
           disabled={isWinner || isLoser}
           activeLetters={guessedLetters.filter((letter) =>

@@ -1,0 +1,17 @@
+.container{
+  gap: 2rem;
+  margin: 0 auto;
+  display: flex;
+  max-width: 800px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 2rem;
+  text-align: center;
+}
+
+.keyboard-container{
+  align-self: stretch;
+}
